@@ -28,6 +28,7 @@ MIT
 [brian-fairbanks](https://github.com/Brian-Fairbanks)
 
 ## Tests
+Manually tested.  No additinal frameworks used.
 
 ## Questions
 <img src="https://avatars0.githubusercontent.com/u/59707181?v=4" height="48" width="48"> | brian.k.fairbanks@gmail.com
