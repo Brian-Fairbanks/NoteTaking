@@ -55,11 +55,6 @@ app.get("/notes", function(req, res){
     res.sendFile(path.join(__dirname , 'public' , 'notes.html'));
 });
 
-//ERROR
-app.get('*', function(req, res){
-    res.sendFile(path.join(__dirname , 'public' , 'index.html'));
-});
-
 // =============================================================
 // API Routes
 // =============================================================
@@ -93,6 +88,12 @@ app.delete('/api/notes/:id', function(req, res){
 
     return res.send('note has been deleted');
 })
+
+
+//ERROR
+app.get('*', function(req, res){
+    res.sendFile(path.join(__dirname , 'public' , 'index.html'));
+});
 
 // =============================================================
 // Main Code
