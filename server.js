@@ -57,12 +57,17 @@ app.get('/api/notes', function (req, res){
 
 // note api post
 app.post('/api/notes', function (req, res){
-    var note = req.body;
+    var note = {'id': Date.now(), ...req.body};
     console.log(note);
     notes.push(note);
     return res.send('note has been saved');
 })
 
+app.delete('/api/notes/:id', function(req, res){
+    var chosen = req.params.character;
+    console.log(`Asking to delete note ${chosen}`);
+    return res.send('note has been deleted');
+})
 
 // =============================================================
 // Main Code
