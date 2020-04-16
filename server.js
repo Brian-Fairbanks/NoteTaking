@@ -3,6 +3,7 @@
 // =============================================================
 var express = require("express");
 var path = require("path");
+var fs = require("fs");
 
 
 // Express App
@@ -26,6 +27,19 @@ const notes = [];
 // Functions
 // =============================================================
 
+function writeFile(){
+    fs.writeFile('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
+        if(err){return console.log(err)}
+    });
+}
+
+function readFile(){
+    let tempData = fs.readFile('./db/db.json','utf8', function(err, data){
+        if(err){return console.log(err)}
+        notes.push ( ...JSON.parse(data) );
+        console.log(notes.length + " Notes have been read in");
+    });
+}
 
 // =============================================================
 // HTML Routes
@@ -58,18 +72,24 @@ app.get('/api/notes', function (req, res){
 // note api post
 app.post('/api/notes', function (req, res){
     var note = {'id': Date.now(), ...req.body};
-    console.log(note);
     notes.push(note);
+
+    // write changes to notes
+    writeFile();
+
     return res.send('note has been saved');
 })
 
 app.delete('/api/notes/:id', function(req, res){
     var chosen = req.params.id;
-    console.log(`Asking to delete note ${chosen}`);
+    console.log(`Asking to delete note id: ${chosen}`);
 
     // find index of passed id, and splice it out of the list
     let index = notes.findIndex(note => note.id==chosen);
     notes.splice(index,1);
+
+    // write changes to notes
+    writeFile();
 
     return res.send('note has been deleted');
 })
@@ -77,6 +97,8 @@ app.delete('/api/notes/:id', function(req, res){
 // =============================================================
 // Main Code
 // =============================================================
+readFile();
+
 app.listen(PORT, function (){
     console.log(`App is listening on http://localhost:${PORT}`)
 })
