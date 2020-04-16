@@ -55,10 +55,10 @@ app.get("/notes", function(req, res){
     res.sendFile(path.join(__dirname , 'public' , 'notes.html'));
 });
 
-// //ERROR
-// app.get('*', function(req, res){
-//     res.sendFile(path.join(__dirname , 'public' , 'index.html'));
-// });
+//ERROR
+app.get('*', function(req, res){
+    res.sendFile(path.join(__dirname , 'public' , 'index.html'));
+});
 
 // =============================================================
 // API Routes
