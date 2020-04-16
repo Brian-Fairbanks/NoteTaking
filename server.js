@@ -64,8 +64,13 @@ app.post('/api/notes', function (req, res){
 })
 
 app.delete('/api/notes/:id', function(req, res){
-    var chosen = req.params.character;
+    var chosen = req.params.id;
     console.log(`Asking to delete note ${chosen}`);
+
+    // find index of passed id, and splice it out of the list
+    let index = notes.findIndex(note => note.id==chosen);
+    notes.splice(index,1);
+
     return res.send('note has been deleted');
 })
 
