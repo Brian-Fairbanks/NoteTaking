@@ -4,6 +4,7 @@
 Hosted at [bkfnotes.heroku.com](https://bkfnotes.herokuapp.com/)
 
 An application that can be used to write, save, view and delete notes.
+
 Uses an express backend to save and retrieve note data from a JSON file.
 
 ## Table of Contents
@@ -13,6 +14,7 @@ Uses an express backend to save and retrieve note data from a JSON file.
 * [Credits](#contributing)
 * [Testing](#tests)
 * [Questions](#questions)
+* [Demo](#demo)
 
 ## Installation
 ```
@@ -32,4 +34,11 @@ Manually tested.  No additinal frameworks used.
 
 ## Questions
 <img src="https://avatars0.githubusercontent.com/u/59707181?v=4" height="48" width="48"> | brian.k.fairbanks@gmail.com
+
+## Demo
+Hosted at [bkfnotes.heroku.com](https://bkfnotes.herokuapp.com/)
+
+![Demo of application in progress](https://github.com/Brian-Fairbanks/NoteTaking/blob/master/Assets/noteDemo.gif?raw=true)
+
+
 
